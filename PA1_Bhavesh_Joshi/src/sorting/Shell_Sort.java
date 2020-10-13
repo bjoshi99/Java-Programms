@@ -23,7 +23,6 @@ public class Shell_Sort {
      */
     public Shell_Sort(LinkedNode<Integer> theFirst) {
         myFirst = theFirst;
-//        shellSort();
     }
     
     /**
@@ -46,7 +45,6 @@ public class Shell_Sort {
         }
         
         int gap = gapSize(mySize);
-//        System.out.println("size "+mySize);
         System.out.println("gap "+gap);
 
         //execute the until gap > 1.
@@ -56,13 +54,7 @@ public class Shell_Sort {
             pass++;
             exchange = 0;
             cmp = 0;
-            
-            //First try
-//            LinkedNode<Integer> current = myFirst.next;
-//            LinkedNode<Integer> cPre = myFirst;        
-//            LinkedNode<Integer> nPre = myFirst;
-//            LinkedNode<Integer> next = myFirst.next;
-            
+                        
             //Second way with previous to be null
             LinkedNode<Integer> current = myFirst;
             LinkedNode<Integer> next = myFirst;
@@ -73,7 +65,6 @@ public class Shell_Sort {
             //condition that i had it before.
             //&& i + gap <= mySize
             while(i <= gap - 1 ) {
-//                System.out.println("i "+i);
                 nPre = next;
                 next = next.next;
                 i++;                   
@@ -91,9 +82,7 @@ public class Shell_Sort {
                 cmp++;
                 //if first then next.data < cPre.data
                 if(next.data < current.data) {
-                    
-//                    System.out.println("ifff ");
-                    
+                                        
                     //Second way
                     if(cPre == null) {
                         
@@ -105,9 +94,7 @@ public class Shell_Sort {
                         nPre.next = current;
                         
                         cPre = myFirst;
-//                        System.out.println("CPre 1 "+cPre.data);
                         
-//                        break;
                         LinkedNode<Integer> tp = next;
                         next = current;
                         current = tp;
@@ -117,44 +104,24 @@ public class Shell_Sort {
                     else {
 
                         LinkedNode<Integer> temp = next.next;
-//                        temp.next = next.next;
                         cPre.next = next;
                         next.next = current.next;
                         nPre.next = current;
                         current.next = temp;
-//                        cPre = next;
-//                        next = temp;
                         
                         LinkedNode<Integer> tp = next;
                         next = current;
                         current = tp;
                     }
                     
-                    //First way                    
-//                    LinkedNode<Integer> temp = cPre;
-//
-//                    cPre.next = next.next;
-//                    next.next = current;
-//                    nPre.next = temp;
-//                    cPre = next;
-//                    next = temp;
-                    
-//                    if(cPre == myFirst) {
-//                        myFirst = next;
-//
-//                    }
-                    exchange++;
-//                    System.out.println("In IF:");
-//                    print();      
-                    
+                    exchange++;                
                     
                 }
                 
                 if(distance == gap) {
                     gapNode = current;
                     gapPreNode = cPre;
-//                    System.out.println("assigning gapnode value "
-//                            + gapNode.data);
+
                 }
                 
                 if (distance == 0) {
@@ -171,21 +138,9 @@ public class Shell_Sort {
                     current = current.next;
                 }
                 
-//                next = next.next;
-//                nPre = nPre.next;
-//                current = current.next;
-                
                 distance++;
-                
-//                print();
-                
-               //checking gapNode value and head node values.
-                
+                                
                if (next == null) {
-                    
-//                    System.out.println("In null :)");
-//                    System.out.println("Gap node data: "+gapNode.data);
-//                    System.out.println("first node data: "+myFirst.data);
 
                     if(gapNode.data < myFirst.data) {
                         
@@ -193,8 +148,7 @@ public class Shell_Sort {
                         
                         LinkedNode<Integer> temp = gapNode.next;
                         gapNode.next = myFirst.next;
-//                        myFirst = gapNode;
-//                        gapNode = myFirst;
+
                         gapPreNode.next = myFirst;
                         myFirst.next = temp;
 
@@ -202,16 +156,7 @@ public class Shell_Sort {
                         
                     }
                 }
-                
-//                if(distance == 2) {
-//                    break;
-//                }
-                
-//                if(distance+gap > mySize) {
-//                    break;
-//                }
-            }
-            
+                          
             System.out.println("Exchange: "+exchange+
                                 " for gap "+gap+" and "+
                                 "Comparison: "+cmp+" pass "+pass);
@@ -220,13 +165,6 @@ public class Shell_Sort {
             
             //Changing the gap size. 
             gap = gapSize(gap);
-
-//            break;
-//            Changing the gap size after all iteration
-//            gap = gapSize(gap);
-        }
-//        print();
-
        System.out.println("Going in bubble");
        
        //Going for bubble sort cause gap = 1.
@@ -243,13 +181,10 @@ public class Shell_Sort {
     private int gapSize(final int theIndex) {
         
         int index = 1;
-//        System.out.println("theIndex "+theIndex);
 
         int gp = 0;
         while((int) ((Math.pow(3, index) - 1)/2) < theIndex) {            
             gp = (int) ((Math.pow(3, index) - 1)/2);   
-//            System.out.println("gp "+gp);
-//            System.out.println("index "+index);
 
             index++;
         }
@@ -261,7 +196,6 @@ public class Shell_Sort {
      */
     public void print() {
         LinkedNode<Integer> n = myFirst;
-//        System.out.println("In Shell sort class");
         while(n.next != null) {
             System.out.print(n.data + " ");
             n = n.next;
