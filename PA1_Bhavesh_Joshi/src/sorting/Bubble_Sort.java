@@ -40,11 +40,7 @@ public class Bubble_Sort {
             start = start.next;
             count++;
         }
-        
-//        LinkedNode<Integer> final
-        
-//        System.out.println("Count " + count);
-        
+                
         //Flag to see if the list is sorted or not. 
         boolean sorted = false;
         
@@ -108,7 +104,7 @@ public class Bubble_Sort {
      */
     public void print() {
         LinkedNode<Integer> n = myHead;
-//        System.out.println("In sort class");
+
         while(n.next != null) {
             System.out.print(n.data + " ");
             n = n.next;
