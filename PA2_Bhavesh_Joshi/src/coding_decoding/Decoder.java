@@ -32,7 +32,7 @@ public class Decoder {
     
     /**
      * Method to decode the string.
-     */
+     */ 
     private void Decode() {
         
         int length = myEncodedString.length();
